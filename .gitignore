@@ -1,6 +1,10 @@
 # terraform
 .terraform/
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
 terraform.tfvars
 terraform.tfstate.backup
 terraform.tfstate
+
+# ansible
+ansible/inventory/k3s-cluster/
