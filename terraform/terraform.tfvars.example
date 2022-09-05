@@ -1,0 +1,49 @@
+proxmox_api_url          = "https://pve.host.example/api2/json"
+proxmmox_api_token_id    = "root@pam!terraform"
+proxmox_api_token_secret = "YOUR_API_TOKEN_SECRET"
+ssh_public_key           = "YOUR_PUBLIC_SSH_KEY"
+nameserver               = "192.168.1.1"
+gateway_ip               = "192.168.1.1"
+
+cluster_nodes = [
+  {
+    name         = "k3s-master-mars"
+    ip           = "192.168.1.50"
+    vmid         = 300
+    memory       = 1024
+    cores        = 1
+    is_master    = true
+    pve_node     = "mars"
+    pve_template = "ubuntu-jammy-cloudinit-mars-template"
+  },
+  {
+    name         = "k3s-master-venus"
+    ip           = "192.168.1.51"
+    vmid         = 301
+    memory       = 1024
+    cores        = 1
+    is_master    = true
+    pve_node     = "venus"
+    pve_template = "ubuntu-jammy-cloudinit-venus-template"
+  },
+  {
+    name         = "k3s-worker-mars-1"
+    ip           = "192.168.1.52"
+    vmid         = 302
+    memory       = 2048
+    cores        = 4
+    is_master    = false
+    pve_node     = "mars"
+    pve_template = "ubuntu-jammy-cloudinit-mars-template"
+  },
+  {
+    name         = "k3s-worker-venus-1"
+    ip           = "192.168.1.53"
+    vmid         = 303
+    memory       = 2048
+    cores        = 4
+    is_master    = false
+    pve_node     = "venus"
+    pve_template = "ubuntu-jammy-cloudinit-venus-template"
+  }
+]
